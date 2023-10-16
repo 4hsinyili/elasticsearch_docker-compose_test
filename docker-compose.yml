@@ -20,6 +20,7 @@ services:
         hard: -1
     volumes:
       - es-master:/usr/share/elasticsearch/data
+      - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
     ports:
       - 9200:9200
     networks:
