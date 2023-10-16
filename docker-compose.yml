@@ -48,6 +48,7 @@ services:
         hard: -1
     volumes:
       - es-data01:/usr/share/elasticsearch/data
+      - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
     networks:
       - elastic
   es-data02:
@@ -67,6 +68,7 @@ services:
         hard: -1
     volumes:
       - es-data02:/usr/share/elasticsearch/data
+      - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
     networks:
       - elastic
 
