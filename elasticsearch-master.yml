@@ -3,4 +3,3 @@ cluster.name: elasticsearch
 discovery.seed_hosts: es-data01,es-data02
 cluster.initial_master_nodes: es-master
 bootstrap.memory_lock: true
-gcs.client.nsysu.credentials_file: /usr/share/elasticsearch/config/cre/cre.json
