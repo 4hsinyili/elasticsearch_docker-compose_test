@@ -16,6 +16,7 @@ services:
       - es-master:/usr/share/elasticsearch/data
       - ./elasticsearch-master.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
+    command: ["bin/elasticsearch-keystore", "add-file", "gcs.client.nsysu.credentials_file", "/usr/share/elasticsearch/config/cre/cre.json"]
     ports:
       - 9200:9200
     networks:
@@ -39,6 +40,7 @@ services:
       - es-data01:/usr/share/elasticsearch/data
       - ./elasticsearch-data.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
+    command: ["bin/elasticsearch-keystore", "add-file", "gcs.client.nsysu.credentials_file", "/usr/share/elasticsearch/config/cre/cre.json"]
     networks:
       - elastic
   es-data02:
@@ -54,6 +56,7 @@ services:
       - es-data02:/usr/share/elasticsearch/data
       - ./elasticsearch-data.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - /var/es-compose/elasticsearch_docker-compose_test/cre:/usr/share/elasticsearch/config/cre
+    command: ["bin/elasticsearch-keystore", "add-file", "gcs.client.nsysu.credentials_file", "/usr/share/elasticsearch/config/cre/cre.json"]
     networks:
       - elastic
 
