@@ -30,6 +30,7 @@ services:
       dockerfile: Dockerfile.es-data
     container_name: es-data01
     environment:
+      - node.name=es-data01
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -45,6 +46,7 @@ services:
     image: es-data:7.4.2
     container_name: es-data02
     environment:
+      - node.name=es-data02
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
