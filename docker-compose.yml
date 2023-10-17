@@ -7,6 +7,11 @@ services:
       dockerfile: Dockerfile.es-master
     container_name: es-master
     environment:
+      - node.name=es-master
+      - cluster.name=elasticsearch
+      - discovery.seed_hosts=es-data01,es-data02
+      - cluster.initial_master_nodes=es-master
+      - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -31,6 +36,10 @@ services:
     container_name: es-data01
     environment:
       - node.name=es-data01
+      - cluster.name=elasticsearch
+      - discovery.seed_hosts=es-master
+      - cluster.initial_master_nodes=es-master
+      - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -47,6 +56,10 @@ services:
     container_name: es-data02
     environment:
       - node.name=es-data02
+      - cluster.name=elasticsearch
+      - discovery.seed_hosts=es-master
+      - cluster.initial_master_nodes=es-master
+      - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
